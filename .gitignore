@@ -5,7 +5,7 @@ yarn-error.log
 .idea
 config.php
 config.py
-__pychache__
+__pycache__
 
 # Laravel 4 specific
 bootstrap/compiled.php
