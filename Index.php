@@ -16,10 +16,8 @@
 <body>
 
 
-
-
-<form method="POST">
-    <button type="submit" name="logout" value="logout" >Log out</button>
+<form class="LogOutForm" method="POST">
+    <button class="LogOutButton" type="submit" name="logout" value="logout" >Log out</button>
 </form>
 
 <?php
@@ -27,26 +25,21 @@
         $_SESSION['user_id'] = NULL;
         header('Location: login.php');
         exit;
-    } else {
-}
+    }
 ?>
 
-
-
-<h1>Сайт со всеми переводами</h1>
-
-<h2>Поля для ввода новых фраз</h2>
-
+<br>
+<h1 style="color:white">Сайт для перевода с японского</h1>
+<br>
 
 <form method="POST">
     <div class="form-element">
         <label>Введите фразу на японском</label>
         <input type="Sended" name="Sended"/>
     </div>
-    <button type="submit" name="Send" value="Send" >Send text</button>
+    <button type="button" name="Send" value="Send" >Отправить текст</button>
 </form>
-
-
+<br>
 <?php
 if (isset($_POST['Send'])) {
     $SendedText = $_POST['Sended'];
@@ -65,10 +58,7 @@ if (isset($_POST['Send'])) {
 else {
 }
 ?>
-
-
-
-<h2>Пользователь</h2>
+<section class="UserSection">
 
 <?php
     require_once "dbconnect.php";
@@ -82,12 +72,13 @@ else {
     mysqli_stmt_close($stmt);
 
     while ($row = mysqli_fetch_row($result_all)) {
-        echo "{$row[1]}";
+        echo "<h3>Пользователь: {$row[1]}</h3>";
     }
 ?>
-
+</section>
 
 <h2>Фразы и слова</h2>
+
 
 
 <?php
@@ -124,7 +115,7 @@ for ($i = 1; $i <= count($array); ++$i) {
         mysqli_stmt_close($stmt);
 
         echo '<br>';
-        echo ' <table border="1">';
+        echo ' <table class="TablePhrases" border="1">';
         echo '<tr>';
         echo '    <th>Фраза: </th>';
         echo '    <th>Транслит:</th>';
@@ -147,7 +138,7 @@ for ($i = 1; $i <= count($array); ++$i) {
         mysqli_stmt_close($stmt);
 
         echo ' ';
-        echo ' <table border="1">';
+        echo ' <table class="TableWords" border="1">';
         echo '<tr>';
         echo '    <th>Слово: </th>';
         echo '    <th>Транслит:</th>';
@@ -164,6 +155,7 @@ for ($i = 1; $i <= count($array); ++$i) {
 }
 
 ?>
+
 
 
 
