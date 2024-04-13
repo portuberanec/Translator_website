@@ -37,7 +37,7 @@
         <label>Введите фразу на японском</label>
         <input type="Sended" name="Sended"/>
     </div>
-    <button type="button" name="Send" value="Send" >Отправить текст</button>
+    <button type="submit" name="Send" value="Send" >Отправить текст</button>
 </form>
 <br>
 <?php
